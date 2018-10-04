@@ -1,30 +1,4 @@
-# Citadel-crud
-Citadel-crud will improve your app's relationship with its Database. Normally, database access leverages a flexible ORM-like system to do whatever you need at the time.
+# Emissary state transfer mechanism
+Applications are, by definition, stateful. Each line a processor executes depends on the one before it, and the state it's gotten into as a result. Possibly the most popular tool for dealing with state, `REST`, has been both misunderstood and widely adopted. With the advent of entire frameworks based on the concept of state, like React and Redux, making "state" a concrete thing has become more and more important.
 
-This can muddle the purpose of what your database code is doing. "Add Person" may create a person, and then return them. It's doing creates as well as reads.
-
-Citadel lets you instantiate CRUD components that can work independantly and asynchonously of one another.
-
-### Creators
-In charge of creating items in the database.
-### Readers
-In charge of instantiating other objects from the database
-### Updaters
-In charge of changing items in the database
-### Deleters
-In charge of deleting items in the database
-## System
-In charge of abstractying database functions for cross-DBMS compatibility
-
-# Planned Features
-### Component composition
-(i.e binding creators / updators to successfully run)
-
-### Helpful macros
-Better usages of DatabaseConnection, etc
-
-### DBMS-agnostic DatabaseConnection
-### Diesel-agnostic database interaction
-### ORM-esque object filling
-### Local and global caching
-### UNIT TESTS!
+Emissary is a way to manage remote state in **rust**. It lets you build up hierarchies for transmission, whether that be for a backend cache or a frontend state management mechanism, like Redux. If you were talking about a `department`, you might be able to add stateful objects, such as `department.employee`, `department.employee.name`. Emissary lets you build up these stateful hierarchies in just 100 lines of Rust.
