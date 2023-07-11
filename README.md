@@ -1,4 +1,6 @@
-# Emissary state transfer mechanism
-Applications are, by definition, stateful. Each line a processor executes depends on the one before it, and the state it's gotten into as a result. Possibly the most popular tool for dealing with state, `REST`, has been both misunderstood and widely adopted. With the advent of entire frameworks based on the concept of state, like React and Redux, making "state" a concrete thing has become more and more important.
+# JSON Key-Value serialization
+This is a very simple library and Rust trait for serializing Rust structures to JSON with a unique key.
 
-Emissary is a way to manage remote state in **rust**. It lets you build up hierarchies for transmission, whether that be for a backend cache or a frontend state management mechanism, like Redux. If you were talking about a `department`, you might be able to add stateful objects, such as `department.employee`, `department.employee.name`. Emissary lets you build up these stateful hierarchies in just 100 lines of Rust.
+It was supposed to help build complicated state trees (like you might see in Redux) but it never really achieved that goal. Instead, it makes your JSON document act a little bit more like Redis by associating a unique key to it.
+
+It CAN be used to built hierarchical state trees, but the package itself isn't really making that easier as intended.
